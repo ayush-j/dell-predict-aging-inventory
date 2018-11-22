@@ -1,0 +1,84 @@
+extends layout
+
+
+append styles
+	style(type="text/css").
+		.spech {
+			background-color: rgba(100,100,100,.15);
+			font-weight: bold;
+		}
+
+		.spech, .specv {
+		    border: 1px solid rgba(86,61,100,.15);
+		    padding: 0.6rem;
+
+		}
+
+block content
+	.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+		h1.h2 Details - #{item.PRODUCT_NAME}
+		
+
+
+	div.container-fluid
+		div.row
+			div.col-md-2.spech Product ID
+			div.col-md-4.specv= item.PRODUCT_ID
+			div.col-md-2.spech Type
+			div.col-md-4.specv= item.TYPE
+
+		div.row
+			div.col-md-2.spech= specsInfo['S1']
+			div.col-md-4.specv= item.S1
+			div.col-md-2.spech= specsInfo['S2']
+			div.col-md-4.specv= item.S2
+		div.row
+			div.col-md-2.spech= specsInfo['S3']
+			div.col-md-4.specv= item.S3
+			div.col-md-2.spech= specsInfo['S4']
+			div.col-md-4.specv= item.S4
+		div.row
+			div.col-md-2.spech Price
+			div.col-md-4.specv Rs. #{item.PRICE} /-
+			div.col-md-2.spech Color
+			div.col-md-2.specv= item.COLOR
+		div.row
+			div.col-md-2.spech Current Location
+			div.col-md-4.specv= item['name']
+			div.col-md-2.spech Current 3PL Rating
+			div.col-md-2.specv= item.rating
+	br
+	div.container-fluid
+		div.row
+			div.col-md-2
+				b High demand in: 
+				span= (mlres||'').split(',')[0]
+			div.col-md-2
+				b Suggested 3PL: 
+				span 3PL#{(mlres||'').split(',')[1]}
+			div.col-md-5
+				b Days to sale in suggested 3PL: 
+				span= (mlres||'').split(',')[1]
+	br
+	div.container
+		div.row
+			div.col-md-4
+				select.form-control(style="display:inline-block;width:200px")
+					each pl in pllist
+						option(value="#{pl['3PLID']}")= pl['name']
+				span 
+				button#move3pl.btn.btn-secondary Move 3PL
+			div.col-md-3
+				button#moveGDO.btn.btn-secondary Move to GDO
+			div.col-md-3
+				button#discardItem.btn.btn-secondary Discard Item
+
+append scripts_bottom
+	script.
+		var productID = #{item.PRODUCT_ID};
+		$('#move3pl').on('click', function(e){
+
+			$.ajax({url: '/runaction', data:{'action':this.id, 'prodid': productID}, success: function(x){
+				console.log(x);
+			}});
+		})

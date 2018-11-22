@@ -1,0 +1,31 @@
+S.NO,PRODUCT NAME,PRODUCT_ID,TYPE,S1,S2,S3,S4,PRICE (₹),COLOR,TOTAL COUNT
+1,Dell Inspiron 5570,MAN_0001,Laptop,15.6 inches,8GB,2 TB,intel core i5 8th gen 8250U,"58,640/-",Dark grey,23655
+2,Dell WM118,MAN_0002,Mouse,1000,3,wireless,,599/-,Black,15777
+3,Dell MS116,MAN_0003,Mouse,1000,3,wired,,228/-,Black,7898
+4,Dell Inspiron 5575,MAN_0004,Laptop,15.6 inches,8GB,1 TB,AMD Ryzen 5 Quad Core 2500 U,"40,499/-",Light grey,4398
+5,Dell Inspiron 3467,MAN_0005,Laptop,14 inches,4GB DDR4,1 TB,intel core i3 6th gen 6006U,"30,490/-",Grey,45645
+6,Dell Inspiron 3552 NoteBook,MAN_0006,Laptop,15.6 inches,4GB DDR3,1 TB,intel pentium Quad core,"22,470/-",Dark grey,5767
+7,Dell inspiron 7570,MAN_0007,Laptop,15.6 inches,8GB DDR4,1 TB,intel core i7  8th gen 8550U,"78,999/-",Light grey,8000
+8,Dell Inspiron 3567 NoteBook,MAN_0008,Laptop,15.6 inches,4GB DDR5,1 TB,intel core i3 ,"31,499/-",Black,19067
+9,Dell Alienware 17,MAN_0009,Gaming Laptop,127,32GB DDR4,1 TB,NVIDIA GeForce GTX 1070,"3,12,499/-",Black,3900
+10,Dell Alienware (AW17781TB2A1) NoteBook,MAN_0010,Gaming Laptop,130,8GB DDR3,1 TB,NVIDIA GeForce GTX 860M,"1,15,000/-",Dark grey,8968
+11,Dell WM126,MAN_0011,Mouse,1000,3,wireless,,699/-,Black/Blue/Red/White,13425
+12,Dell KB216 Multimedia USB ,MAN_0012,Keyboard,Mechanical,Wired,Backlight(F),,649/-,Black,14555
+13,Dell SK-8135 Multimedia USB ,MAN_0013,Keyboard,Mechanical,Wired,Backlight(F),,"11,260/-",Black,25454
+14,Dell KB813  USB English Keyboard with Smart Card Reader - R4F7T,MAN_0014,Keyboard,Mechanical,Wired,Backlight(F),,"7,120/-",Black,5785
+15,Dell KM714 Wireless Mouse and Keyboard,MAN_0015,keyboard+mouse,Mechanical,wireless,Backlight(F),,"4,499/-",Black,68956
+16,Dell Wireless Keyboard and Mouse KM636,MAN_0016,keyboard+mouse,Mechanical,wireless,Backlight(F),,"2,299/-",Black,24577
+17,Dell Premier KM717 Wireless Keyboard and Mouse,MAN_0017,keyboard+mouse,Mechanical,wireless,Backlight(F),,"15,000/-",Black,9785
+18,Dell KM636 Wireless Keyboard and Mouse,MAN_0018,keyboard+mouse,Mechanical,wireless,Backlight(F),,"4,999/-",White,35647
+19,Dell Wired Multimedia USB Keyboard KB216,MAN_0019,Keyboard,Mechanical,wired,Backlight(F),,729/-,White,12395
+20," Dell LED- HD, TN Panel with VGA, Display Ports - E2016H ",MAN_0020,Monitor,19.5 inch (49.5 cm) ,60hz,1920*1080 pixel,,"5,295/-",Black,3789
+21,"Dell  Ultra Thin Bezel LED - Full HD, IPS Panel with VGA, HDMI, Audio in/Out Ports - S2218H ",MAN_0021,Monitor,21.5 inch (54.6 cm),76hz,1920*1080 pixel,,"11,351/-",Black,7858
+22,"Dell-HD Ready, TN Panel with VGA, HDMI Ports - D1918H ",MAN_0022,Monitor,18.5 inch (47 cm) ,60hz,1366*768 pixel,,"5,379/-",Black,9563
+23,"Dell LED- Full HD, IPS Panel with VGA, HDMI Ports - E2418HN ",MAN_0023,Monitor, 23.8 inch (60.47 cm),60hz,1600*900 pixel,,"11,500/-",Black,24675
+24,Dell P Series Screen LED-Lit  (P2419H),MAN_0024,Monitor, 24 inch(60.96cm),60hz,1920*1080 pixel,,"25,600/-",Black,43778
+25,DELL Inspiron 15 7577 ,MAN_0025,GamingLaptop,141,8 GB DDR4,1 TB,Nvidia GeForce GTX 1050 Ti 4GB,"99,990/-",Black,4788
+26,Dell Inspiron 15 5577,MAN_0026,GamingLaptop,141.21,8 GB DDR4,1 TB,Nvidia GeForce GTX 1050M,"77,234/-",Black,4788
+27,Dell Alienware 15,MAN_0027,GamingLaptop,141,8 GB DDR4,1 TB,NVIDIA GeForce GTX 1080,"2,60,259/-",Black,8855
+28,Dell G Series G7 7588 ,MAN_0028,laptop,15.6-inch,16GB DDR4,1 TB,intel i7-8750H,"133,121/-",Black,23566
+29,Dell P2018H,MAN_0029,Monitor,20 inch,60hz,1600 x 900 pixel,,"8,740/-",Black,4677
+30,Dell Widescreen Ultrasharp LED Monitor  U2412M ,MAN_0030,Monitor, 24 inch (60.9 cm),60hz,1920 X 1200pixel,,"25,000/-",Black,8575

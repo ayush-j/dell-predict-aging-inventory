@@ -1,0 +1,111 @@
+extends layout
+
+
+append styles
+	link(href="/stylesheets/jquery.dataTables.css", rel="stylesheet")
+	style(type="text/css").
+		#inventory a { color: inherit; }
+
+block content
+	.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+		h1.h2 Available Products
+		
+	p List of products currently in inventory that have not been sold.
+
+
+	div#chart
+		
+	h3 Items
+
+	.table-responsive
+		table.table.table-striped.table-sm#inventory
+			thead
+				tr
+					th #
+					th Name
+					th ID
+					th Type
+					th Price
+					th Color
+					th Available
+			tbody
+				each row in rows
+					tr
+						td= row.SNO
+						td
+							a(href="/product/view/" + row.PRODUCT_ID)= row.PRODUCT_NAME
+						td= row.PRODUCT_ID
+						td= row.TYPE
+						td= row.PRICE
+						td= row.COLOR
+						td= row.AVAILABLE
+
+
+append scripts_bottom
+	script(src="/javascripts/highcharts.js")
+	script(src="/javascripts/jquery.dataTables.js")
+	script.
+		$(document).ready( function () {
+		    var table = $('table').DataTable({ pageLength: 50 });
+		      var tableData = td(table);
+		      hc(tableData);
+		      manageUpdates(table);
+		    
+		} );
+
+		function td(table) {
+		  var availByType = [[], []];
+
+		  table.rows({ search: "applied" }).every(function() {
+		    var data = this.data();
+		    availByType[0].push(data[1]);
+		    availByType[1].push(parseInt(data[6], 10));
+		  });
+		 
+		 
+		  return availByType;
+		}
+
+		function hc(data) {
+		  Highcharts.chart("chart", {
+		    chart: {
+		           type: 'column'
+		       },
+		       title: {
+		           text: 'Stock by Item'
+		       },
+		       subtitle: {
+		           text: ''
+		       },
+		       xAxis: {
+		           categories: data[0],
+		       },
+		       yAxis: {
+		           min: 0,
+		           title: {
+		               text: 'Available'
+		           }
+		       },
+		       series: [{
+		           name: 'Available',
+		           data: data[1]
+
+		       }]
+		  });
+		}
+		var draw = false;
+
+		function manageUpdates(table) {
+			
+			table.on("page", function(){
+				draw = true;
+			});
+
+			table.on("draw", function() {
+				if (draw) {
+				  draw = false;
+				} else {
+				  hc(td(table));
+				}
+			});
+		}

@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		link(rel='icon', href='/images/favicon.ico')
+		title #{title}
+		block scripts_top
+
+		block styles
+			link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+			link(href='/stylesheets/dashboard.css', rel='stylesheet')
+
+	body
+		nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.p-0.shadow
+			a.navbar-brand.col-sm-3.col-md-2.mr-0(href='#') &nbsp;
+			h3.nav-title-text Aging Inventory Prediction - DELL
+			ul.navbar-nav.px-3
+				li.nav-item.text-nowrap
+		.container-fluid
+			.row
+				nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+					.sidebar-sticky
+						ul.nav.flex-column
+							li.nav-item
+								a.nav-link.active(href='/')
+									span(data-feather='home')
+									| Intro 
+									span.sr-only (current)
+							li.nav-item
+								a.nav-link(href='/dashboard')
+									span(data-feather='home')
+									| Audit View
+							li.nav-item
+								a.nav-link(href='/inventory')
+									span(data-feather='shopping-cart')
+									| Inventory
+							//- li.nav-item
+							//- 	a.nav-link(href='/reports')
+							//- 		span(data-feather='bar-chart-2')
+							//- 		| Reports
+							li.nav-item
+								a.nav-link(href='/mlstats')
+									span(data-feather='layers')
+									| ML stats
+							li.nav-item
+								a.nav-link(href='/about')
+									span(data-feather='info')
+									| About
+						//- h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+						//- 	span Analyze
+						//- 	//- a.d-flex.align-items-center.text-muted(href='#')
+						//- 		span(data-feather='plus-circle')
+						//- ul.nav.flex-column.mb-2
+						//- 	li.nav-item
+						//- 		a.nav-link(href='#')
+						//- 			span(data-feather='file-text')
+						//- 			| Current month
+						//- 	li.nav-item
+						//- 		a.nav-link(href='#')
+						//- 			span(data-feather='file-text')
+						//- 			| Last quarter
+				main.col-md-9.ml-sm-auto.col-lg-10.px-4(role='main')
+					block content
+		script(src='/javascripts/jquery-3.3.1.js')
+		script(src='/javascripts/popper.js')
+		script(src='/javascripts/bootstrap.min.js')
+		script(src='/javascripts/feather.js')
+		block scripts_bottom
+			
+		script.
+			feather.replace()
+		

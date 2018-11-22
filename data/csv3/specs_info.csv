@@ -1,0 +1,6 @@
+﻿TYPE,S1,S2,S3,S4
+Monitor,Size,Refresh Rate,PPI,
+Laptop,Screen Size,RAM,HD Capacity,Processor
+Mice,DPI,Buttons, Wired,
+Keyboard,Mechanical,Wired,Backlight,
+Gaming Laptop,Display PPI,RAM,HD Capacity,GPU

@@ -1,0 +1,179 @@
+extends layout
+
+
+append styles
+	link(href="/stylesheets/datatables.css", rel="stylesheet")
+	style(type="text/css").
+		#unsold-items a { color: inherit; }
+
+block content
+	.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+		h1.h2 Audit View 
+	
+	h3 Aging Items
+
+	div#chart
+	.table-responsive
+		table.table.table-striped.table-sm#unsold-items
+			thead
+				tr
+					th ID
+					th Name
+					th Product ID
+					th Type
+					th Price
+					th Color
+					th Age
+					th 3PL / Location
+					th Suggestion
+			tbody
+				- var i = 0;
+				each row in rows
+					- i++;
+					if row.AGE>=90
+						tr
+							td= row.ID
+							td
+								a(href="/inventory/view/" + row.ID)= row.PRODUCT_NAME
+							td= row.PRODUCT_ID
+							td= row.TYPE
+							td= row.PRICE
+							td= row.COLOR
+							td= row.AGE
+							td= row['name']
+							td Move to 3PL##{(mlr[i]||'').split(',')[1]}
+
+	hr
+	h3 All Items
+	.table-responsive
+		table.table.table-striped.table-sm#all-unsold-items
+			thead
+				tr
+					th Name
+					th ID
+					th Type
+					th Price
+					th Color
+					th Age
+					th 3PL
+			tbody
+				- var j = 0;
+				each row in rows
+					- i++;
+					tr
+						td
+							a(href="/inventory/view/" + row.ID)= row.PRODUCT_NAME
+						td= row.PRODUCT_ID
+						td= row.TYPE
+						td= row.PRICE
+						td= row.COLOR
+						td= row.AGE
+						td= row['name']
+	div.row
+	
+append scripts_bottom
+	script(src="/javascripts/highcharts.js")
+	script(src="/javascripts/datatables.js")
+	script(src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js")
+	script.
+		$(document).ready( function () {
+		    var table = $('#unsold-items').DataTable({
+				 dom: 'frtip',
+		    	pageLength: 20,
+						        "createdRow": function ( row, data, index ) {
+						        	var age = +data[6];
+						        	var targetCell = $(row); $('td', row).eq(6);
+				                    if (age > 110)
+				                        targetCell.addClass('table-danger');
+				                    else if(age>90)
+				                    	targetCell.addClass('table-warning');
+				                },/*
+		    		                "columnDefs": [ {
+		    		                            "targets": -1,
+		    		                            "data": null,
+		    		                            "defaultContent": "<button class='applyb btn'>Apply</button>"
+		    		                        } ]*/
+		    });
+
+		     var table2 = $('#all-unsold-items').DataTable({
+		        	pageLength: 20,
+		        	
+		    				        "createdRow": function ( row, data, index ) {
+		    				        	var age = +data[5];
+		    				        	var targetCell = $(row); $('td', row).eq(5);
+		    		                    if (age > 110)
+		    		                        targetCell.addClass('table-danger');
+		    		                    else if(age>90)
+		    		                    	targetCell.addClass('table-warning');
+		    		                }
+		        });
+		     /*
+		     var tableData = td(table);
+		     hc(tableData);
+		     manageUpdates(table);
+
+
+			function td(table) {
+			  var availByType = [[], []];
+			  var keys = {};
+			  table.rows({ search: "applied" }).every(function() {
+			    var data = this.data();
+			    if(data[1] in keys){
+			    	keys[data[1]] = 1;
+			    }else
+			    	keys[data[1]]++;
+			  });
+			 	availByType[0]=Object.keys(keys);
+
+			 	availByType[1]=Object.values(keys);
+			  return availByType;
+			}
+
+			function hc(data) {
+			  Highcharts.chart("chart", {
+			    chart: {
+			           type: 'column'
+			       },
+			       title: {
+			           text: 'Stock by Item'
+			       },
+			       subtitle: {
+			           text: ''
+			       },
+			       xAxis: {
+			           categories: data[0],
+			       },
+			       yAxis: {
+			           min: 0,
+			           title: {
+			               text: 'Available'
+			           }
+			       },
+			       series: [{
+			           name: 'Available',
+			           data: data[1]
+
+			       }]
+			  });
+			}
+			var draw = false;
+
+			function manageUpdates(table) {
+				
+				table.on("page", function(){
+					draw = true;
+				});
+
+				table.on("draw", function() {
+					if (draw) {
+					  draw = false;
+					} else {
+					  hc(td(table));
+					}
+				});
+			}
+		    //h/c(tableData);
+		    //manageUpdates(table);
+		    */
+		    
+		} );
